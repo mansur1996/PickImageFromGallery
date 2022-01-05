@@ -42,11 +42,12 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if(resultCode == RESULT_OK){
+        if(requestCode == RESULT_LOAD_IMG && resultCode == RESULT_OK){
             val imageUri : Uri? = data!!.getData();
-            val  imageStream : InputStream? = getContentResolver().openInputStream(imageUri!!);
-            val selectedImage : Bitmap = BitmapFactory.decodeStream(imageStream);
-            image_view.setImageBitmap(selectedImage);
+            //val  imageStream : InputStream? = getContentResolver().openInputStream(imageUri!!);
+            //val selectedImage : Bitmap = BitmapFactory.decodeStream(imageStream);
+            //image_view.setImageBitmap(selectedImage);
+            image_view.setImageURI(imageUri)
         }
     }
 }
